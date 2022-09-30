@@ -2,7 +2,7 @@ export function Card (product) {
   return `<article class="Card">
   <img 
     src=${product.images[0]} 
-    alt=${product.title} 
+    alt="${product.title}"
     width="350px"
     height="350px"
   />
