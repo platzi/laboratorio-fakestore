@@ -1,31 +1,31 @@
-const $app = document.getElementById('app');
-const $observe = document.getElementById('observe');
-const API = 'https://api.escuelajs.co/api/v1/products';
+const $app = document.getElementById('app')
+const $observe = document.getElementById('observe')
+const API = process.env.API
 
 const getData = api => {
   fetch(api)
     .then(response => response.json())
     .then(response => {
-      let products = response;
-      let output = products.map(product => {
+      const products = response
+      const output = products.map(product => {
         // template
-      });
-      let newItem = document.createElement('section');
-      newItem.classList.add('Item');
-      newItem.innerHTML = output;
-      $app.appendChild(newItem);
+      })
+      const newItem = document.createElement('section')
+      newItem.classList.add('Item')
+      newItem.innerHTML = output
+      $app.appendChild(newItem)
     })
-    .catch(error => console.log(error));
+    .catch(error => console.log(error))
 }
 
 const loadData = () => {
-  getData(API);
+  getData(API)
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
   // logic...
 }, {
-  rootMargin: '0px 0px 100% 0px',
-});
+  rootMargin: '0px 0px 100% 0px'
+})
 
-intersectionObserver.observe($observe);
+intersectionObserver.observe($observe)
