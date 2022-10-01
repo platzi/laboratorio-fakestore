@@ -1,3 +1,15 @@
+## Deploy
+
+[https://laboratorio-fakestore.vercel.app/](https://laboratorio-fakestore.vercel.app/)
+
+## Retos solucionados:
+
+- [ X ] Primer problema
+- [ X ] Segundo problema
+- [ X ] Tercer problema
+- [ X ] Cuarto Problema
+- [ X ] Quinto Problema
+- [ X ] Sexto Problema
 # FakeStore.shop
 
 FakeStore somos comercio en línea con una gran cantidad de productos a comercializar. Estamos por lanzar nuestra implementación y necesitamos resolver los problemas que presenta nuestra aplicación.
