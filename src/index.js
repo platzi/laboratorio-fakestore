@@ -3,10 +3,10 @@ import { buildProduct } from '@components/product';
 import { memoryPaginationFactory } from '@helpers/pagination';
 
 const $app = document.getElementById('app');
-const API = 'https://api.escuelajs.co/api/v1/products?offset=:start&limit=:number';
-const START = 5;
-const STEPS = 10;
-const LIMIT = 30;
+const API = process.env.PLATZI_API;
+const START = Number(process.env.PRODUCT_START);
+const STEPS = Number(process.env.PAGINATION_STEPS);
+const LIMIT = Number(process.env.LIMIT);
 
 const stepPagination = memoryPaginationFactory(0, STEPS);
 const addPage = () => loadData(stepPagination(), 10);
@@ -24,7 +24,6 @@ const endMessage = () => {
 const observerFactory = (callback, stopCondition) => {
   const observer = new IntersectionObserver(entries => {
     entries.filter(isIntersecting).forEach(entry => {
-      console.log(entry);
       const node = entry.target;
       if (stopCondition()) {
         endMessage();

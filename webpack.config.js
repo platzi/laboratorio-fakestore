@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const DotenvPlugin = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -25,6 +26,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new DotenvPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebPackPlugin({
       inject: true,
@@ -34,7 +36,6 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@lazy': path.resolve(__dirname, './src/lazy'),
       '@components': path.resolve(__dirname, './src/components'),
       '@styles': path.resolve(__dirname, './src/styles'),
       '@helpers': path.resolve(__dirname, './src/helpers')
