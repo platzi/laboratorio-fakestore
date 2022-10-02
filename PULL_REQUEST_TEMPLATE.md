@@ -1,6 +1,6 @@
 ## DESCRIPTION
 
-Solución al reto:
+Solución al reto: [githubpages](https://martin76ec.github.io/laboratorio-fakestore/)
 
 Nombre: Martin Larrea
 Usuario Platzi: martin86ec
