@@ -7,10 +7,9 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-#observe {
-  width: 100%;
-  height: 10px;
-  background-color: red;
+#counter {
+  position: fixed;
+  z-index: 2;
 }
 
 .Main {

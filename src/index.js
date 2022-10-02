@@ -1,63 +1,74 @@
+import '@styles/styles.css';
+import { buildProduct } from '@components/product';
+import { memoryPaginationFactory } from '@helpers/pagination';
+
 const $app = document.getElementById('app');
 const API = 'https://api.escuelajs.co/api/v1/products?offset=:start&limit=:number';
-const START = 0
+const START = 5;
 const STEPS = 10;
+const LIMIT = 30;
+
+const stepPagination = memoryPaginationFactory(0, STEPS);
+const addPage = () => loadData(stepPagination(), 10);
 
 const isIntersecting = entry => {
   return entry.isIntersecting;
 };
 
-const observer = new IntersectionObserver(entries => {
-  entries.filter(isIntersecting).forEach(entry => {
-    const node = entry.target;
-    loadData(pagination.next().value, STEPS);
-    observer.unobserve(node);
-  });
-});
-
-const registerImage = img => observer.observe(img);
-
-const infiniteAdd = function* (init, steps) {
-  let index = init;
-  while(true) yield index += steps;
+const endMessage = () => {
+  const msgContainer = document.createElement('div');
+  msgContainer.innerHTML = '<p> Todos los productos cargados';
+  $app.appendChild(msgContainer);
 };
 
-const buildItem = (product, index) => `
-  <article class="Card">
-    <h1>Product #${index}</h1>
-    <img src="${product.images[0]}" />
-    <h2>
-      ${product.title}
-      <small>$ ${product.price}</small>
-    </h2>
-  </article>
-`;
+const observerFactory = (callback, stopCondition) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.filter(isIntersecting).forEach(entry => {
+      console.log(entry);
+      const node = entry.target;
+      if (stopCondition()) {
+        endMessage();
+        observer.unobserve(node);
+        return;
+      }
+      callback();
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px 0px 0px',
+    threshold: 0.5
+  });
+
+  return component => observer.observe(component);
+};
+
+const observe = observerFactory(() => addPage(), () => window.localStorage.pagination >= LIMIT);
 
 const getData = async api => {
   const response = await fetch(api);
   const products = await response.json();
-  return products.map((product, index) => buildItem(product, index));
+  return products.map((product, index) => buildProduct(product, index));
 }
 
-const pagination = infiniteAdd(0, STEPS);
-
-const loadData = async (page, steps) => {
+const loadData = async page => {
   try {
     const products = await getData(
       API
-      .replace(':start', page)
-      .replace(':number', steps)
+      .replace(':start',  page + START)
+      .replace(':number', STEPS)
     );
-    products.forEach((product, index) => {
-      const container = document.createElement('div');
-      container.classList.add('Item');
-      container.innerHTML = product;
-      $app.appendChild(container);
-      if (index === steps - 1) registerImage(container);
+    const $productsContainer = document.createElement('div');
+    $productsContainer.classList.add('Items');
+    const $elements = products.map(product => {
+      const $container = document.createElement('div');
+      $container.innerHTML = product;
+      return $container;
     });
+    $productsContainer.append(...$elements);
+    $app.appendChild($productsContainer);
   } catch(err) {
     console.error(err);
   }
 }
 
-loadData(pagination.next().value, STEPS);
+observe(document.getElementById('observable'));

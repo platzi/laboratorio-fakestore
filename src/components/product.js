@@ -1,6 +1,5 @@
-export const buildProduct = (product, index) => `
+export const buildProduct = product => `
   <article class="Card">
-    <h1>Product #${index}</h1>
     <img src="${product.images[0]}" />
     <h2>
       ${product.title}
