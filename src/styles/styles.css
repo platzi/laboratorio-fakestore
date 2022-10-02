@@ -7,11 +7,6 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-#counter {
-  position: fixed;
-  z-index: 2;
-}
-
 .Main {
   padding: 10px;
   grid-template-columns: minmax(auto, 768px);

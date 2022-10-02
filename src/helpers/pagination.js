@@ -13,7 +13,6 @@ export const memoryPaginationFactory = (start, steps) => {
 
   return () => {
     const page = paginator.next().value;
-    document.getElementById('counter').innerHTML = `Count: ${page}`;
     paginationSave(page);
     return Number(window.localStorage.pagination);
   };
