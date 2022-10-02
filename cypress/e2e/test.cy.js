@@ -1,6 +1,6 @@
 describe("FakeStore Tests", () => {
   beforeEach(() => {
-    cy.visit('http://localhost:8080/public/');
+    cy.visit('http://localhost:8080/');
     cy.wait(2000);
   })
 
@@ -9,7 +9,7 @@ describe("FakeStore Tests", () => {
   });
 
   it("Obtener initialState del LocalStorage", () => {
-    expect(localStorage.getItem('pagination')).to.eq('5');
+    expect(localStorage.getItem('pagination')).to.eq('10');
   });
 
   it("Obtener los primeros 10 Productos", () => {
