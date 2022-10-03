@@ -1,27 +1,18 @@
 import './styles/styles.scss';
+import productService from './services/ProductService';
+import cardComponent from './components/CardComponent';
 
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
-const API = 'https://api.escuelajs.co/api/v1/products';
 
-const getData = api => {
-  fetch(api)
-    .then(response => response.json())
-    .then(response => {
-      let products = response;
-      let output = products.map(product => {
-        // template
-      });
-      let newItem = document.createElement('section');
-      newItem.classList.add('Item');
-      newItem.innerHTML = output;
-      $app.appendChild(newItem);
-    })
-    .catch(error => console.log(error));
-}
-
-const loadData = () => {
-  getData(API);
+const loadData = async () => {
+  try {
+    const products = await productService.getData();
+    const productsSection = cardComponent.createProductsSection(products);
+    $app.appendChild(productsSection);
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
@@ -31,3 +22,5 @@ const intersectionObserver = new IntersectionObserver(entries => {
 });
 
 intersectionObserver.observe($observe);
+
+loadData();
