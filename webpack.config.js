@@ -22,7 +22,7 @@ const config = {
             template: './src/index.html',
         }),
         new Dotenv({
-          systemVars: true
+          systemvars: true
         }),
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
