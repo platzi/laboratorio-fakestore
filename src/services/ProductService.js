@@ -1,5 +1,5 @@
 const productService = (() => {
-  const API = 'https://api.escuelajs.co/api/v1/products';
+  const API = process.env.API;
 
   const getData = (offset, limit) => {
     return new Promise((resolve, reject) => {
@@ -8,7 +8,7 @@ const productService = (() => {
       }
   
       if (!limit) {
-        limit = 10;
+        limit = process.env.API_LIMIT;
       }
   
       fetch(`${API}?offset=${offset}&limit=${limit}`)

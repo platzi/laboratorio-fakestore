@@ -8,7 +8,6 @@
     "e2e": "cypress open",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "start:dev": "webpack serve"
   },
@@ -31,6 +30,7 @@
     "autoprefixer": "^10.4.12",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "dotenv-webpack": "^8.0.1",
     "html-webpack-plugin": "^5.5.0",
     "live-server": "^1.1.0",
     "mini-css-extract-plugin": "^2.6.1",
