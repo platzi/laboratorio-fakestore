@@ -21,7 +21,9 @@ const config = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
-        new Dotenv(),
+        new Dotenv({
+          systemVars: true
+        }),
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],
