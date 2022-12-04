@@ -12,6 +12,7 @@ body {
   grid-template-columns: minmax(auto, 768px);
   display: grid;
   justify-content: center;
+  
 }
 
 .Items {
@@ -44,6 +45,15 @@ body {
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
+}
+
+.catalog-finish {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes fade {
