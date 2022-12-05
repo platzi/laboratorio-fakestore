@@ -34,8 +34,10 @@ body {
 }
 
 .Card img {
-  width: 100%;
-  height: auto;
+  width: 100%;  
+  min-height: 270px;
+  max-height: 280px;
+  background-color: #3c484e;
   border-radius: 5px 5px 0 0;
 }
 
@@ -63,4 +65,13 @@ body {
   to {
     opacity: 1;
   }
+}
+
+@media  (max-width: 620px) {
+  .Items {
+    display: grid;
+    grid-template-columns: minmax(auto, 370px);
+    justify-content: center;
+    align-content: center;
+  } 
 }

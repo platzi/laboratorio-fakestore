@@ -10,7 +10,7 @@ const endOfCatalog = document.querySelector('.catalog-finish')
 endOfCatalog.classList.add('hidden')
 
 const infiniteScroll = () => {
-  const endOfPage = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+  const endOfPage = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 100;
   
   if (endOfPage) {
     offset = offset + limit;
@@ -46,7 +46,7 @@ function renderProducts(product){
   cardArticle.classList.add('Card');  
   const cardImage = document.createElement('img');
   const cardTitle = document.createElement('h2');
-  const cardPrice = document.createElement('small');
+  const cardPrice = document.createElement('small');  
   cardImage.setAttribute('data-img', product.images[0]);
   cardImage.setAttribute('alt', product.title);
   cardTitle.innerText = `${product.id} ${product.title}`;
@@ -56,12 +56,7 @@ function renderProducts(product){
   cardArticle.appendChild(cardTitle);
   sectionCard.appendChild(cardArticle);
   
-  lazyLoader.observe(cardImage);
-  console.log(cardImage.hasAttribute('src'));
-  if (cardImage.hasAttribute('src')) {
-    lazyLoader.unobserve(cardImage)
-    console.log('deje de observar');
-  }
+  lazyLoader.observe(cardImage); 
 }
 
 
@@ -91,11 +86,15 @@ const lazyLoader = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const url = entry.target.getAttribute('data-img')
-      entry.target.setAttribute('src' , url)      
+      entry.target.setAttribute('src' , url)
+      entry.target.addEventListener('error', () => {
+        entry.target.setAttribute('src', "./img/failedload.jpg")
+      });
     } 
   })
 }, {
-  threshold: 0.25,  
+  rootMargin: '0px 0px 100px 0px',
+  threshold: 0,  
 });
 
 
