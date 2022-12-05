@@ -16,7 +16,7 @@ const infiniteScroll = () => {
     offset = offset + limit;
     loadData();
     if (maxOffset) {
-      endOfCatalog.classList.remove('hidden')
+      endOfCatalog.classList.remove('hidden')      
     }
     return
   }
@@ -43,12 +43,11 @@ function loadData() {
 
 function renderProducts(product){
   const cardArticle = document.createElement('article');
-  cardArticle.classList.add('Card');
-  cardArticle.setAttribute('loading', 'lazy');
+  cardArticle.classList.add('Card');  
   const cardImage = document.createElement('img');
   const cardTitle = document.createElement('h2');
   const cardPrice = document.createElement('small');
-  cardImage.setAttribute('src', product.images[0]);
+  cardImage.setAttribute('data-img', product.images[0]);
   cardImage.setAttribute('alt', product.title);
   cardTitle.innerText = `${product.id} ${product.title}`;
   cardPrice.innerText = product.price;
@@ -56,6 +55,13 @@ function renderProducts(product){
   cardArticle.appendChild(cardImage);
   cardArticle.appendChild(cardTitle);
   sectionCard.appendChild(cardArticle);
+  
+  lazyLoader.observe(cardImage);
+  console.log(cardImage.hasAttribute('src'));
+  if (cardImage.hasAttribute('src')) {
+    lazyLoader.unobserve(cardImage)
+    console.log('deje de observar');
+  }
 }
 
 
@@ -81,10 +87,15 @@ async function fetchData(urlAPI) {
 }
 
 //Utils
-const intersectionObserver = new IntersectionObserver(entries => {
-  // logic...
+const lazyLoader = new IntersectionObserver(entries => {  
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const url = entry.target.getAttribute('data-img')
+      entry.target.setAttribute('src' , url)      
+    } 
+  })
 }, {
-  rootMargin: '0px 0px 100% 0px',
+  threshold: 0.25,  
 });
 
-intersectionObserver.observe($observe);
+
