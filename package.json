@@ -7,19 +7,20 @@
     "build": "webpack --config webpack.config.js",
     "dev": "webpack --config webpack.config.dev.js",
     "start": "webpack serve --config webpack.config.dev.js",
-    "e2e": "cypress open"
+    "e2e": "cypress open",
+    "deploy": "node ./scripts/create-env.js && webpack --mode production --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/platzi/laboratorio-fakestore.git"
+    "url": "git+https://github.com/amaneiro7/laboratorio-fakestore"
   },
   "keywords": [],
-  "author": "Oscar Barajas <oscar@platzi.com>",
+  "author": "Andres Maneiro <amaneiro7@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/platzi/laboratorio-fakestore/issues"
   },
-  "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
+  "homepage": "https://amaneiro7.github.io/laboratorio-fakestore/",
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@babel/plugin-transform-runtime": "^7.19.6",
@@ -39,6 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.20.6",
-    "cypress": "^12.0.2"
+    "cypress": "^12.0.2",
+    "gh-pages": "^4.0.0"
   }
 }
