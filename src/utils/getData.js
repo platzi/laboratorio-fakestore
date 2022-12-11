@@ -2,7 +2,7 @@ const API = process.env.API;
 
 const getData = async () => {
     const api = `${API}?offset=${localStorage.offset}&limit=${localStorage.limit}`
-    try {
+        try {
         const response = await fetch(api)
         const data = await response.json(); 
         if (data.length < 10) {

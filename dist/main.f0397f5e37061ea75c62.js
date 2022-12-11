@@ -516,7 +516,7 @@ var lazyLoader = new IntersectionObserver(function (entries) {
 
 
 //variables
-localStorage.setItem('offset', 0);
+localStorage.setItem('offset', 5);
 localStorage.setItem('limit', 10);
 localStorage.setItem('maxOffset', false);
 var sectionCard = document.querySelector('.Items');
