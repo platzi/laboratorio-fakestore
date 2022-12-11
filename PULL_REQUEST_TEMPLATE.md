@@ -2,8 +2,8 @@
 
 Solución al reto:
 
-Nombre:
-Usuario Platzi:
+Nombre: Andres Maneiro
+Usuario Platzi: amaneiro7
 
 ## Reto:
 
