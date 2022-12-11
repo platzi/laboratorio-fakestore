@@ -4,24 +4,43 @@
   "description": "FakeStore",
   "main": "index.js",
   "scripts": {
-    "start": "live-server --open=public --entry-file=index.html",
-    "e2e": "cypress open"
+    "build": "webpack --config webpack.config.js",
+    "dev": "webpack --config webpack.config.dev.js",
+    "start": "webpack serve --config webpack.config.dev.js",
+    "e2e": "cypress open",
+    "deploy": "node ./scripts/create-env.js && webpack --mode production --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/platzi/laboratorio-fakestore.git"
+    "url": "git+https://github.com/amaneiro7/laboratorio-fakestore"
   },
   "keywords": [],
-  "author": "Oscar Barajas <oscar@platzi.com>",
+  "author": "Andres Maneiro <amaneiro7@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/platzi/laboratorio-fakestore/issues"
   },
-  "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
+  "homepage": "https://webpack-config--platzifakestoream7.netlify.app/",
   "devDependencies": {
-    "live-server": "^1.1.0"
+    "@babel/core": "^7.20.5",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.2",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "dotenv-webpack": "^8.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "progress-webpack-plugin": "^1.0.16",
+    "url-loader": "^4.1.1",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "cypress": "^10.2.0"
+    "@babel/runtime": "^7.20.6",
+    "cypress": "^12.0.2",
+    "gh-pages": "^4.0.0"
   }
 }
