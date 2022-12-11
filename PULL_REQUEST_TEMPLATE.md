@@ -9,7 +9,7 @@ Usuario Platzi: amaneiro7
 
 - [X] Primer problema
 - [X] Segundo problema
-- [ ] Tercer problema
-- [ ] Cuarto Problema
-- [ ] Quinto Problema
-- [ ] Sexto Problema
+- [X] Tercer problema
+- [X] Cuarto Problema
+- [X] Quinto Problema
+- [X] Sexto Problema
