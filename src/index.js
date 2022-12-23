@@ -12,9 +12,14 @@ const renderProducts = async () => {
   const [error, products] = await getProductsFromPage(currentOffset, 10);
 
   if (!error) {
+    const productsContainer = document.createElement('div');
+    productsContainer.classList.add('Items');
+
     products.forEach((product) => {
-      $app.innerHTML += createProductCard(product);
+      productsContainer.innerHTML += createProductCard(product);
     });
+
+    $app.appendChild(productsContainer);
   } else {
     console.error(error);
   }
