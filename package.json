@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "e2e": "cypress open"
+    "e2e": "cypress open",
+    "deploy": "pnpm build && gh-pages -d ./dist"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
   "devDependencies": {
+    "gh-pages": "4.0.0",
     "live-server": "^1.1.0",
     "prettier": "2.8.1",
     "vite": "4.0.3"
