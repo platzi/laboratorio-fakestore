@@ -1,15 +1,15 @@
 ## DESCRIPTION
 
-Solución al reto:
+Solución al reto: [🚀 Github Pages](https://pchaparro.github.io/laboratorio-fakestore/)
 
-Nombre:
-Usuario Platzi:
+Nombre: Pedro Chaparro
+Usuario Platzi: [pedrochq](https://platzi.com/p/pedrochq/)
 
 ## Reto:
 
-- [ ] Primer problema
-- [ ] Segundo problema
-- [ ] Tercer problema
-- [ ] Cuarto Problema
-- [ ] Quinto Problema
-- [ ] Sexto Problema
+- [x] Primer problema
+- [x] Segundo problema
+- [x] Tercer problema
+- [x] Cuarto Problema
+- [x] Quinto Problema
+- [x] Sexto Problema
