@@ -1,3 +1,4 @@
+import { MAX_OFFSET } from './constants.config';
 import { getLocalStorageEntry, updateLocalStorageEntry } from './services/localstorage.services';
 import { getProductsFromPage } from './services/products.services';
 import { createProductCard } from './view/products.ui';
@@ -28,7 +29,7 @@ const renderProducts = async () => {
 const ObserverTrigger = (entries, _) => {
   const { isIntersecting } = entries[0];
 
-  if (isIntersecting) {
+  if (isIntersecting && currentOffset <= MAX_OFFSET) {
     updateLocalStorageEntry('pagination', currentOffset);
     renderProducts(currentOffset, 10);
     currentOffset += 10;
