@@ -5,11 +5,11 @@ import { createProductCard } from './view/products.ui';
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 
-updateLocalStorageEntry('pagination', 0);
-let currentPage = getLocalStorageEntry('pagination') || 0;
+updateLocalStorageEntry('pagination', 5); // Start with the fifth item
+let currentOffset = Number(getLocalStorageEntry('pagination')) || 5;
 
 const renderProducts = async () => {
-  const [error, products] = await getProductsFromPage(currentPage, 10);
+  const [error, products] = await getProductsFromPage(currentOffset, 10);
 
   if (!error) {
     products.forEach((product) => {
@@ -24,9 +24,9 @@ const ObserverTrigger = (entries, _) => {
   const { isIntersecting } = entries[0];
 
   if (isIntersecting) {
-    currentPage++;
-    updateLocalStorageEntry('pagination', currentPage);
-    renderProducts(currentPage, 10);
+    updateLocalStorageEntry('pagination', currentOffset);
+    renderProducts(currentOffset, 10);
+    currentOffset += 10;
   }
 };
 
