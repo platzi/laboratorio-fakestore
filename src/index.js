@@ -28,6 +28,15 @@ const renderProducts = async () => {
 
 const ObserverTrigger = (entries, _) => {
   const { isIntersecting } = entries[0];
+  console.log('Observer', currentOffset);
+
+  if (currentOffset > MAX_OFFSET) {
+    $app.innerHTML += `
+      <p class="message">All the available products were obtained 😁</p>
+    `;
+
+    Observer.unobserve($observe);
+  }
 
   if (isIntersecting && currentOffset <= MAX_OFFSET) {
     updateLocalStorageEntry('pagination', currentOffset);

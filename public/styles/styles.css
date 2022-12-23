@@ -49,6 +49,12 @@ body {
   justify-content: space-between;
 }
 
+.message {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-block: 32px;
+}
+
 @keyframes fade {
   from {
     opacity: 0;
