@@ -1,5 +1,9 @@
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
+let newItem = document.createElement('section');
+newItem.classList.add('Items');
+
+
 let offset = GetLocalStorage() || '5';
 window.addEventListener('DOMContentLoaded', () => {
   localStorage.removeItem('pagination')
@@ -25,11 +29,11 @@ function GetLocalStorage() {
 const getData = api => {
   fetch(api)
     .then(response => response.json())
-    .then(response => {
+    .then(data => {
 
       setLocalStorage()
       //console.log("response", response);
-      response.forEach(product => {
+      const dataAPI = data.forEach(product => {
         // template
         //console.log("products", product);
         const article = document.createElement('article');
@@ -47,16 +51,10 @@ const getData = api => {
         article.appendChild(image);
         article.appendChild(h2);
         h2.appendChild(small);
-        $app.appendChild(article);
-
+        newItem.appendChild(article)
+        $app.appendChild(newItem);
 
       });
-
-
-      // let newItem = document.createElement('section');
-      // newItem.classList.add('Item');
-      // newItem.innerHTML = output;
-      // $app.appendChild(newItem);
     })
     .catch(error => console.log(error));
 }
