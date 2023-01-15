@@ -2,12 +2,13 @@ const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 let offset = GetLocalStorage() || '5';
 window.addEventListener('DOMContentLoaded', () => {
+  localStorage.removeItem('pagination')
   offset = '5';
-  loadData(API)
   API = `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`;
   console.log("api", API);
-
   setLocalStorage();
+  loadData(API)
+
 })
 console.log('offset', offset);
 let limit = '10';
@@ -51,18 +52,6 @@ const getData = api => {
 
       });
 
-      const btnPagination = document.createElement('button')
-      btnPagination.innerText = 'next Page'
-      $app.appendChild(btnPagination);
-
-      btnPagination.addEventListener('click', () => {
-        offset = Number(offset) + Number(limit);
-        offset = String(offset)
-        API = `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`
-        setLocalStorage();
-        loadData(API)
-        console.log("Funciona")
-      })
 
       // let newItem = document.createElement('section');
       // newItem.classList.add('Item');
@@ -71,10 +60,25 @@ const getData = api => {
     })
     .catch(error => console.log(error));
 }
+const nextPage = () => {
+  if (offset != 205) {
+    offset = Number(offset) + Number(limit);
+    offset = String(offset)
+    API = `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`
+    setLocalStorage();
+    loadData(API)
+  } else {
+    const p = document.createElement('p');
+    p.innerText = 'Todos los productos Obtenidos'
+    p.classList.add('finalP')
+    $app.appendChild(p);
+    intersectionObserver.unobserve($observe)
+    alert('Todos los productos Obtenidos')
+  }
+}
 
-
-const loadData = (urlAPI) => {
-  getData(urlAPI);
+const loadData = async (urlAPI) => {
+  await getData(urlAPI);
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
@@ -82,12 +86,17 @@ const intersectionObserver = new IntersectionObserver(entries => {
   entries.forEach((entry) => {
 
     if (entry.isIntersecting) {
-      console.log("image");
+      nextPage()
+      console.log('soy el observer');
     }
   });
 }, {
   rootMargin: '0px 0px 100% 0px',
 });
 
-intersectionObserver.observe($observe);
+
+setTimeout(() => {
+  intersectionObserver.observe($observe)
+
+}, 2000)
 

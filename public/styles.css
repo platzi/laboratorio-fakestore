@@ -46,10 +46,16 @@ body {
   justify-content: space-between;
 }
 
+.finalP {
+  text-align: center;
+  font-size: 25px;
+}
+
 @keyframes fade {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
