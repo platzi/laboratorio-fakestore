@@ -1,3 +1,4 @@
+import "../public/styles.css";
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 let newItem = document.createElement('section');
