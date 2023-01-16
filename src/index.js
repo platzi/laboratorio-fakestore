@@ -60,7 +60,7 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 const nextPage = () => {
-  if (offset != 205) {
+  if (offset <= 205) {
     offset = Number(offset) + Number(limit);
     offset = String(offset)
     API = `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`
@@ -90,12 +90,11 @@ const intersectionObserver = new IntersectionObserver(entries => {
     }
   });
 }, {
-  rootMargin: '0px 0px 100% 0px',
+  rootMargin: '0px 0px 0px 0px',
 });
 
 
 setTimeout(() => {
   intersectionObserver.observe($observe)
-
 }, 2000)
 
