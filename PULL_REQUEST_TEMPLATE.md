@@ -2,14 +2,14 @@
 
 Solución al reto:
 
-Nombre:
-Usuario Platzi:
+Nombre: [Santiago Alvarez](https://github.com/salvarez96)
+Usuario Platzi: [santiagoalvarez9617](https://platzi.com/p/santiagoalvarez9617/)
 
 ## Reto:
 
-- [ ] Primer problema
-- [ ] Segundo problema
+- [X] Primer problema
+- [X] Segundo problema
 - [ ] Tercer problema
-- [ ] Cuarto Problema
-- [ ] Quinto Problema
+- [X] Cuarto Problema
+- [X] Quinto Problema
 - [ ] Sexto Problema

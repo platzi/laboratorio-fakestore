@@ -4,13 +4,15 @@ const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 const API = 'https://api.escuelajs.co/api/v1/products';
 
+const limit = 10;
+
 const pagination = (offset) => {
-  return `?offset=${offset}&limit=10`
+  return `?offset=${offset}&limit=${limit}`
 }
 
-let storeProductsLength = 0;
+let storePagination = 5;
 
-window.localStorage.setItem('pagination', storeProductsLength);
+localStorage.setItem('pagination', storePagination);
 
 const getData = api => {
   fetch(api)
@@ -22,30 +24,28 @@ const getData = api => {
       newItem.classList.add('Items');
       newItem.innerHTML = output;
       $app.appendChild(newItem);
-      localStorage.setItem('pagination', JSON.parse(localStorage.getItem('pagination')) + products.length)
       console.log(localStorage.getItem('pagination'));
     })
     .catch(error => console.log(error));
-}
+  }
 
 const loadData = (pages) => {
   getData(`${API}${pagination(pages)}`);
+  localStorage.setItem('pagination', storePagination);
+  storePagination += limit;
 }
 
-
 const intersectionObserver = new IntersectionObserver(entries => {
-  // logic...
   
   const pagination = JSON.parse(localStorage.getItem('pagination'));
-
+  
   entries.filter(entry => {
     if (entry.isIntersecting) {
-      console.log(entries);
       loadData(pagination);
     }
   })
-
-  if (pagination > 50) {
+  
+  if (pagination > 200) {
     const limit = document.createElement('p');
     limit.textContent = 'Todos los productos Obtenidos';
     $app.appendChild(limit);
@@ -57,5 +57,3 @@ const intersectionObserver = new IntersectionObserver(entries => {
 });
 
 intersectionObserver.observe($observe);
-
-loadData(5);
