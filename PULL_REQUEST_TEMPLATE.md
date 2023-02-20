@@ -9,7 +9,7 @@ Usuario Platzi: [santiagoalvarez9617](https://platzi.com/p/santiagoalvarez9617/)
 
 - [X] Primer problema
 - [X] Segundo problema
-- [ ] Tercer problema
+- [X] Tercer problema
 - [X] Cuarto Problema
 - [X] Quinto Problema
 - [ ] Sexto Problema
