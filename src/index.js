@@ -1,18 +1,21 @@
+import { card } from "./components/card";
+
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 const API = 'https://api.escuelajs.co/api/v1/products';
+
+const pagination = (offset) => {
+  return `?offset=${offset}&limit=10`
+}
 
 const getData = api => {
   fetch(api)
     .then(response => response.json())
     .then(response => {
       let products = response;
-      let output = products.map(product => {
-        // template
-      });
-      console.log(products);
+      let output = products.map(product => card(product));
       let newItem = document.createElement('section');
-      newItem.classList.add('Item');
+      newItem.classList.add('Items');
       newItem.innerHTML = output;
       $app.appendChild(newItem);
     })
@@ -20,7 +23,7 @@ const getData = api => {
 }
 
 const loadData = () => {
-  getData(API);
+  getData(`${API}${pagination(5)}`);
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
@@ -30,3 +33,5 @@ const intersectionObserver = new IntersectionObserver(entries => {
 });
 
 intersectionObserver.observe($observe);
+
+loadData()
