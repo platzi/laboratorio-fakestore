@@ -10,6 +10,7 @@ const getData = api => {
       let output = products.map(product => {
         // template
       });
+      console.log(products);
       let newItem = document.createElement('section');
       newItem.classList.add('Item');
       newItem.innerHTML = output;
