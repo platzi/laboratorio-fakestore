@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
   "devDependencies": {
+    "cypress-vite": "^1.3.0",
     "live-server": "^1.1.0",
     "vite": "^4.1.3"
   },
