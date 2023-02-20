@@ -12,4 +12,4 @@ Usuario Platzi: [santiagoalvarez9617](https://platzi.com/p/santiagoalvarez9617/)
 - [X] Tercer problema
 - [X] Cuarto Problema
 - [X] Quinto Problema
-- [ ] Sexto Problema
+- [X] Sexto Problema

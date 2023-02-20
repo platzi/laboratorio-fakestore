@@ -38,15 +38,15 @@ const loadData = async (pages) => {
 
 const intersectionObserver = new IntersectionObserver(entries => {
   
-  const pagination = JSON.parse(localStorage.getItem('pagination'));
+  const getPagination = JSON.parse(localStorage.getItem('pagination'));
   
   entries.filter(entry => {
     if (entry.isIntersecting) {
-      loadData(pagination);
+      loadData(getPagination);
     }
   })
   
-  if (pagination > 200) {
+  if (getPagination > 200) {
     $app.appendChild(limitMessage());
     intersectionObserver.unobserve($observe);
   }
