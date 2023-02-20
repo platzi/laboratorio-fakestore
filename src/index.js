@@ -1,4 +1,6 @@
 import { card } from "./components/card";
+import { itemsListSection } from "./components/items-list-section";
+import { limitMessage } from "./components/limit-message";
 
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
@@ -20,10 +22,7 @@ const getData = api => {
     .then(response => {
       let products = response;
       let output = products.map(product => card(product));
-      let newItem = document.createElement('section');
-      newItem.classList.add('Items');
-      newItem.innerHTML = output;
-      $app.appendChild(newItem);
+      $app.appendChild(itemsListSection(output));
       console.log(localStorage.getItem('pagination'));
     })
     .catch(error => console.log(error));
@@ -45,10 +44,8 @@ const intersectionObserver = new IntersectionObserver(entries => {
     }
   })
   
-  if (pagination > 200) {
-    const limit = document.createElement('p');
-    limit.textContent = 'Todos los productos Obtenidos';
-    $app.appendChild(limit);
+  if (pagination > 20) {
+    $app.appendChild(limitMessage());
     intersectionObserver.unobserve($observe);
   }
 
