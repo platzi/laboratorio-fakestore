@@ -1,15 +1,18 @@
 ## DESCRIPTION
 
-Solución al reto:
+Solución al reto: [gh-repo](https://github.com/salvarez96/laboratorio-fakestore)
 
-Nombre:
-Usuario Platzi:
+[Deploy del proyecto](https://salvarez96.github.io/laboratorio-fakestore/)
+
+Nombre: [Santiago Alvarez](https://github.com/salvarez96)
+
+Usuario Platzi: [santiagoalvarez9617](https://platzi.com/p/santiagoalvarez9617/)
 
 ## Reto:
 
-- [ ] Primer problema
-- [ ] Segundo problema
-- [ ] Tercer problema
-- [ ] Cuarto Problema
-- [ ] Quinto Problema
-- [ ] Sexto Problema
+- [X] Primer problema
+- [X] Segundo problema
+- [X] Tercer problema
+- [X] Cuarto Problema
+- [X] Quinto Problema
+- [X] Sexto Problema
