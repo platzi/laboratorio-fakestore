@@ -22,7 +22,7 @@ const getData = async (api) => {
     const response = await fetch(api);
     const data = await response.json();
     
-    const output = data.map(product => card(product));
+    const output = data.map(product => card(product)).join('');
     $app.appendChild(itemsListSection(output));
 
   } catch {
