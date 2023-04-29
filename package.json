@@ -4,6 +4,8 @@
   "description": "FakeStore",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --mode development --open",
     "start": "live-server --open=public --entry-file=index.html",
     "e2e": "cypress open"
   },
@@ -19,9 +21,15 @@
   },
   "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
   "devDependencies": {
-    "live-server": "^1.1.0"
+    "css-loader": "^6.7.3",
+    "live-server": "^1.1.0",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
-    "cypress": "^10.2.0"
+    "cypress": "^10.2.0",
+    "html-webpack-plugin": "^5.5.1"
   }
 }

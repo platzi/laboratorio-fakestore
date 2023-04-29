@@ -12,11 +12,17 @@
 <body>
   <div class="Main">
     <h1>FakeStore</h1>
-    <div id="app"></div>
+    <div id="app">
+      <div class="Items">
+
+      </div>
+    </div>
     <div id="observe"></div>
+    <!--OBSERVE es para detectar cuándo el usuario ha llegado al final del contenido de APP -->
+    <!--se utiliza un elemento separado ($observe) como punto de referencia para la detección de intersección, ya que este elemento está justo debajo de $app y se hace visible cuando se llega al final de $app. De esta forma, cuando el usuario hace scroll y $observe entra en la pantalla, se activa la carga de más productos. -->
   </div>
 </body>
 
-<script type="text/javascript" src="../src/index.js"></script>
+<!-- <script type="text/javascript" src="../src/index.js"></script> -->
 
 </html>
