@@ -1,11 +1,16 @@
 {
+  "homepage": "https://nelsonalejandro.github.io/laboratorio-fakestore",
   "name": "laboratorio-fakestore",
   "version": "1.0.0",
   "description": "FakeStore",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "live-server --open=public --entry-file=index.html",
-    "e2e": "cypress open"
+    "e2e": "cypress open",
+    "build": "webpack --mode production",
+    "builddev": "webpack --mode development"
   },
   "repository": {
     "type": "git",
@@ -17,9 +22,13 @@
   "bugs": {
     "url": "https://github.com/platzi/laboratorio-fakestore/issues"
   },
-  "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
   "devDependencies": {
-    "live-server": "^1.1.0"
+    "copy-webpack-plugin": "^11.0.0",
+    "gh-pages": "^5.0.0",
+    "html-webpack-plugin": "^5.5.1",
+    "live-server": "^1.1.0",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1"
   },
   "dependencies": {
     "cypress": "^10.2.0"
