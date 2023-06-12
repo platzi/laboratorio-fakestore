@@ -2,14 +2,14 @@
 
 Solución al reto:
 
-Nombre:
-Usuario Platzi:
+Nombre: Israel Danilo Blas Salas
+Usuario Platzi: Sdann26
 
 ## Reto:
 
-- [ ] Primer problema
-- [ ] Segundo problema
-- [ ] Tercer problema
-- [ ] Cuarto Problema
-- [ ] Quinto Problema
-- [ ] Sexto Problema
+- [✔️] Primer problema
+- [✔️] Segundo problema
+- [✔️] Tercer problema
+- [✔️] Cuarto Problema
+- [✔️] Quinto Problema
+- [✔️] Sexto Problema
