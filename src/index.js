@@ -7,9 +7,17 @@ const API = 'https://api.escuelajs.co/api/v1/products';
 const getProducts = () => {
   const limit = 10;
   const initialOffset = 5;
-  localStorage.setItem("pagination", initialOffset)
 
-  const url = `${API}?offset=${initialOffset}&limit=${limit}`
+  let offset = localStorage.getItem("pagination");
+  if (!offset) {
+    offset = initialOffset;
+    localStorage.setItem("pagination", initialOffset)
+  } else {
+    offset = Number(offset) + limit;
+    localStorage.setItem("pagination", offset)
+  }
+
+  const url = `${API}?offset=${offset}&limit=${limit}`
 
   fetch(url)
     .then(response => response.json())
@@ -42,10 +50,9 @@ const renderProducts = (products) => {
   $app.appendChild(productsContainer);
 }
 
-getProducts();
-
 const intersectionObserver = new IntersectionObserver(entries => {
   // logic...
+  if (entries[0].isIntersecting) getProducts();
 }, {
   rootMargin: '0px 0px 100% 0px',
 });
