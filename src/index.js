@@ -1,9 +1,16 @@
+localStorage.removeItem("pagination");
+
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 const API = 'https://api.escuelajs.co/api/v1/products';
 
-const getData = api => {
-  fetch(api)
+const getProducts = () => {
+  const initialOffset = 5;
+  localStorage.setItem("pagination", initialOffset)
+
+  const url = `${API}?offset=${initialOffset}`
+
+  fetch(url)
     .then(response => response.json())
     .then(response => {
       let products = response;
@@ -18,9 +25,7 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = () => {
-  getData(API);
-}
+getProducts();
 
 const intersectionObserver = new IntersectionObserver(entries => {
   // logic...
