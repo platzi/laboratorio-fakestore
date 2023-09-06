@@ -5,24 +5,41 @@ const $observe = document.getElementById('observe');
 const API = 'https://api.escuelajs.co/api/v1/products';
 
 const getProducts = () => {
+  const limit = 10;
   const initialOffset = 5;
   localStorage.setItem("pagination", initialOffset)
 
-  const url = `${API}?offset=${initialOffset}`
+  const url = `${API}?offset=${initialOffset}&limit=${limit}`
 
   fetch(url)
     .then(response => response.json())
     .then(response => {
       let products = response;
-      let output = products.map(product => {
-        // template
-      });
-      let newItem = document.createElement('section');
-      newItem.classList.add('Item');
-      newItem.innerHTML = output;
-      $app.appendChild(newItem);
+      renderProducts(products)
     })
     .catch(error => console.log(error));
+}
+
+const cardTemplate = (product) => {
+  const template = 
+  `<article class="Card">
+    <img src="${product.images[0]}" />
+  </article>`
+
+  return template;
+}
+
+const renderProducts = (products) => {
+  let productsContainer = document.createElement('section');
+  productsContainer.classList.add('Items');
+
+  let template = "";
+  products.forEach(product => {
+    template += cardTemplate(product)
+  });
+
+  productsContainer.innerHTML += template;
+  $app.appendChild(productsContainer);
 }
 
 getProducts();
