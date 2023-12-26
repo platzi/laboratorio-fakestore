@@ -14,11 +14,11 @@ body {
   justify-content: center;
 }
 
-.Items {
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.5rem;
-  grid-row-gap: 1.5em;
+.Item {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1.5rem;
+  justify-content: center;
 }
 
 .Card {
@@ -26,10 +26,11 @@ body {
   box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
     1px 3px 8px rgba(39, 44, 49, 0.03);
   border-radius: 5px;
-  margin: 0 0 20px 0;
+  margin-bottom: 40px;
   display: block;
   animation-duration: 4s;
   animation-name: fade;
+  min-width: 300px;
 }
 
 .Card img {
@@ -44,6 +45,19 @@ body {
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
+}
+
+.Card-body {
+  position: relative;
+}
+
+span {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 5px 15px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 @keyframes fade {

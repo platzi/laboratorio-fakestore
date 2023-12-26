@@ -1,6 +1,6 @@
 describe("FakeStore Tests", () => {
   beforeEach(() => {
-    cy.visit('http://localhost:8080/public/');
+    cy.visit('http://localhost:8080/');
     cy.wait(2000);
   })
 
