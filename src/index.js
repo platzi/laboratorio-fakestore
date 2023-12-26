@@ -2,6 +2,8 @@ const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 const API = 'https://api.escuelajs.co/api/v1/products';
 
+console.log("Server Working!");
+
 const getData = api => {
   fetch(api)
     .then(response => response.json())
