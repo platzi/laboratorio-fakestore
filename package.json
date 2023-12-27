@@ -4,22 +4,42 @@
   "description": "FakeStore",
   "main": "index.js",
   "scripts": {
-    "start": "live-server --open=public --entry-file=index.html",
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --open --config webpack.config.dev.js",
+    "deploy": "gh-pages -d dist",
+    "start": "webpack-dev-server --open --config webpack.config.dev.js",
     "e2e": "cypress open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/platzi/laboratorio-fakestore.git"
+    "url": "git+https://github.com/HaroldZS/Technical-test-e-commerce"
   },
-  "keywords": [],
-  "author": "Oscar Barajas <oscar@platzi.com>",
+  "keywords": [
+    "javascript",
+    "intersection-observer"
+  ],
+  "author": "Harold Zurita Simon <HaroldZS>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/platzi/laboratorio-fakestore/issues"
+    "url": "https://github.com/HaroldZS/Technical-test-e-commerce/issues"
   },
-  "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
+  "homepage": "https://github.com/HaroldZS/Technical-test-e-commerce#readme",
   "devDependencies": {
-    "live-server": "^1.1.0"
+    "@babel/core": "7.18.5",
+    "babel-loader": "8.2.5",
+    "clean-webpack-plugin": "4.0.0",
+    "copy-webpack-plugin": "11.0.0",
+    "css-loader": "6.7.1",
+    "css-minimizer-webpack-plugin": "4.0.0",
+    "dotenv-webpack": "7.1.0",
+    "gh-pages": "4.0.0",
+    "html-webpack-plugin": "5.5.0",
+    "mini-css-extract-plugin": "2.6.1",
+    "style-loader": "3.3.1",
+    "terser-webpack-plugin": "5.3.3",
+    "webpack": "5.73.0",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.9.2"
   },
   "dependencies": {
     "cypress": "^10.2.0"
