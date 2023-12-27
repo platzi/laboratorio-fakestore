@@ -1,36 +1,52 @@
 const $app = document.getElementById("app");
 const $observe = document.getElementById("observe");
-const API = "https://api.escuelajs.co/api/v1/products";
+const API = process.env.API_URL;
 
-import "./styles/styles.css";
-import { card } from "./templates/card";
+import { card } from "@templates/card";
+import "@styles/styles.css";
 
-console.log("Server Working!");
+localStorage.setItem("pagination", 5);
+let firstLoad = true;
 
-const getData = (api) => {
-  fetch(api)
-    .then((response) => response.json())
-    .then((response) => {
-      let products = response;
-      let output = products.map((product) => card(product));
-      let newItem = document.createElement("section");
-      newItem.classList.add("Item");
-      newItem.innerHTML = output.join(" ");
-      $app.appendChild(newItem);
-    })
-    .catch((error) => console.log(error));
+window.onbeforeunload = () => {
+  localStorage.removeItem("pagination");
 };
 
-const loadData = () => {
-  getData(API);
+const getData = async (api) => {
+  const res = await fetch(api);
+  const products = await res.json();
+  const output = products.map((product) => card(product));
+  let newItem = document.createElement("section");
+  newItem.classList.add("Items");
+  newItem.innerHTML = output.join(" ");
+  $app.appendChild(newItem);
+};
+
+const loadData = async () => {
+  if (firstLoad) {
+    firstLoad = false;
+  } else {
+    localStorage.setItem(
+      "pagination",
+      Number(localStorage.getItem("pagination")) + 10
+    );
+  }
+  await getData(`${API}?offset=${localStorage.getItem("pagination")}&limit=10`);
 };
 
 const intersectionObserver = new IntersectionObserver(
   (entries) => {
-    // logic...
+    if (entries[0].isIntersecting) {
+      loadData();
+      console.log("Es visible");
+    } else {
+      console.log("No es visible");
+    }
   },
   {
-    rootMargin: "0px 0px 100% 0px",
+    root: null,
+    rootMargin: "0px 0px 0px 0px",
+    threshold: 0.5,
   }
 );
 
