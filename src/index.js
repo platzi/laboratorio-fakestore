@@ -15,11 +15,19 @@ window.onbeforeunload = () => {
 const getData = async (api) => {
   const res = await fetch(api);
   const products = await res.json();
-  const output = products.map((product) => card(product));
-  let newItem = document.createElement("section");
-  newItem.classList.add("Items");
-  newItem.innerHTML = output.join(" ");
-  $app.appendChild(newItem);
+
+  if (products.length) {
+    const output = products.map((product) => card(product));
+    let newItem = document.createElement("section");
+    newItem.classList.add("Items");
+    newItem.innerHTML = output.join(" ");
+    $app.appendChild(newItem);
+  } else {
+    intersectionObserver.unobserve($observe);
+    const msg = document.createElement("p");
+    msg.textContent = "Todos los productos Obtenidos";
+    $observe.appendChild(msg);
+  }
 };
 
 const loadData = async () => {
@@ -38,9 +46,6 @@ const intersectionObserver = new IntersectionObserver(
   (entries) => {
     if (entries[0].isIntersecting) {
       loadData();
-      console.log("Es visible");
-    } else {
-      console.log("No es visible");
     }
   },
   {
@@ -51,5 +56,3 @@ const intersectionObserver = new IntersectionObserver(
 );
 
 intersectionObserver.observe($observe);
-
-loadData();
