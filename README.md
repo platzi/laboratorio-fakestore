@@ -18,7 +18,7 @@ npm run start
 
 ### Debug
 
-- <http://fakestore.shop>
+- <https://fakeapi.platzi.com/>
 - localhost:8080/public
 
 ### Documentación
