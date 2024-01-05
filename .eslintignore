@@ -1,0 +1,10 @@
+/dist/*
+/build/*
+/node_modules/*
+/**/*.bundle.js
+/**/index.bundle.*.js
+/**/googleAnalytics.js
+
+# Concrate project
+/cypress/**/*.js
+/cypress.config.js
