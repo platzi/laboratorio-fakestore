@@ -6,4 +6,5 @@
 /**/index.css
 
 # Concrate project
-/src/css/base.css
+/public/**/*.css
+/assets/**/*.css
