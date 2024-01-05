@@ -1,27 +1,92 @@
 {
-  "name": "laboratorio-fakestore",
-  "version": "1.0.0",
-  "description": "FakeStore",
-  "main": "index.js",
-  "scripts": {
-    "start": "live-server --open=public --entry-file=index.html",
-    "e2e": "cypress open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/platzi/laboratorio-fakestore.git"
-  },
-  "keywords": [],
-  "author": "Oscar Barajas <oscar@platzi.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/platzi/laboratorio-fakestore/issues"
-  },
-  "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
-  "devDependencies": {
-    "live-server": "^1.1.0"
-  },
-  "dependencies": {
-    "cypress": "^10.2.0"
-  }
+	"name": "laboratorio-fakestore",
+	"version": "1.0.0",
+	"description": "FakeStore",
+	"main": "index.js",
+	"scripts": {
+		"e2e": "npm run build && cypress open",
+		"dev": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack serve --config webpack.dev.ts --stats-error-details",
+		"preview": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config webpack.prod.ts && npx http-server ./build --gzip",
+		"build": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config webpack.prod.ts",
+		"lint": "npx eslint ./**.{js,mjs,cjs,ts,mts}",
+		"lint:fix": "npx eslint --fix ./**.{js,mjs,cjs,ts,mts}",
+		"stylelint": "npx stylelint \"**/*.css\" --allow-empty-input",
+		"stylelint:fix": "npx stylelint --fix \"**/*.css\" --allow-empty-input",
+		"prepare": "husky install"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/platzi/laboratorio-fakestore.git"
+	},
+	"keywords": [],
+	"author": "Oscar Barajas <oscar@platzi.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/platzi/laboratorio-fakestore/issues"
+	},
+	"homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
+	"devDependencies": {
+		"@babel/core": "^7.23.7",
+		"@babel/preset-env": "^7.23.7",
+		"@babel/preset-typescript": "^7.23.3",
+		"@tsconfig/recommended": "^1.0.3",
+		"@types/html-webpack-plugin": "^3.2.9",
+		"@types/node": "^20.10.6",
+		"@types/webpack": "^5.28.5",
+		"@types/webpack-bundle-analyzer": "^4.6.3",
+		"@types/webpack-dev-server": "^4.7.2",
+		"@typescript-eslint/eslint-plugin": "^6.17.0",
+		"@typescript-eslint/parser": "^6.17.0",
+		"babel-loader": "^9.1.3",
+		"cross-env": "^7.0.3",
+		"css-loader": "^6.8.1",
+		"css-minimizer-webpack-plugin": "^5.0.1",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-import-resolver-typescript": "^3.6.1",
+		"eslint-plugin-check-file": "^2.6.2",
+		"eslint-plugin-editorconfig": "^4.0.3",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-jsdoc": "^48.0.2",
+		"eslint-plugin-prettier": "^5.1.2",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"eslint-plugin-sort-class-members": "^1.19.0",
+		"eslint-plugin-tsdoc": "^0.2.17",
+		"eslint-plugin-unused-imports": "^3.0.0",
+		"glob-all": "^3.3.1",
+		"html-loader": "^4.2.0",
+		"html-webpack-plugin": "^5.6.0",
+		"http-server": "^14.1.1",
+		"husky": "^8.0.0",
+		"mini-css-extract-plugin": "^2.7.6",
+		"postcss": "^8.4.33",
+		"postcss-loader": "^7.3.4",
+		"postcss-preset-env": "^9.3.0",
+		"prettier": "^3.1.1",
+		"purgecss-webpack-plugin": "^5.0.0",
+		"style-loader": "^3.3.3",
+		"stylelint": "^16.1.0",
+		"stylelint-config-standard-scss": "^13.0.0",
+		"stylelint-order": "^6.0.4",
+		"stylelint-prettier": "^5.0.0",
+		"stylelint-scss": "^6.0.0",
+		"ts-loader": "^9.5.1",
+		"typescript": "^5.3.3",
+		"web-vitals": "^3.5.1",
+		"webpack": "^5.89.0",
+		"webpack-bundle-analyzer": "^4.10.1",
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^4.15.1"
+	},
+	"dependencies": {
+		"cypress": "^13.6.2",
+		"ts-node": "^10.9.2"
+	},
+	"lint-staged": {
+		"*.(j|t)s": "npm run lint:fix",
+		"*.s(a|c)ss": "npm run stylelint:fix"
+	},
+	"browserslist": [
+		"defaults and supports es6-module"
+	]
 }
