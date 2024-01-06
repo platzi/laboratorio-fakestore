@@ -13,6 +13,13 @@
 :root {
 	--text-color: oklch(39.33% 0.019 229.47deg);
 	--blue-charcoal-lch: 29.03% 0.012 248.23deg;
+	--fs-base: 62.5%;
+}
+
+html {
+	height: 100%;
+	font-size: var(--fs-base);
+	scroll-behavior: smooth;
 }
 
 body {
@@ -70,4 +77,10 @@ body {
 	to {
 		opacity: 1;
 	}
+}
+
+.main__items-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+	gap: 4rem;
 }
