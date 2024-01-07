@@ -2,7 +2,7 @@ import { Product } from '@src/types/Product';
 
 /**
  * Create HTML structure for a product.
- * @param product - Product from API https://api.escuelajs.co/api/v1/products in JSON format {@link @types/Product.ts#Product | Product}.
+ * @param product - Product from API https://api.escuelajs.co/api/v1/products in JSON format.
  * @returns Article tag with skeleton product to append.
  *
  * @example
@@ -30,6 +30,7 @@ import { Product } from '@src/types/Product';
  *	</h2>
  * </article>
  * ```
+ * @see {@link Product}
  */
 export function htmlTemplateProduct(product: Product): HTMLElement {
 	const ARTICLE = document.createElement('article');

@@ -3,7 +3,7 @@
 		"target": "ES2022",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"lib": ["ES2020", "DOM", "DOM.Iterable", "WebWorker", "ESNext"],
 		"skipLibCheck": true,
 
 		/* Bundler mode */
@@ -44,6 +44,13 @@
 		}
 	},
 	"extends": "@tsconfig/recommended/tsconfig.json",
-	"include": ["./**/*.ts", "cypress.config.js"],
+	"include": [
+		"./**/*.ts",
+		"cypress.config.js",
+		"src/sw.ts",
+		"src/service-worker/sw.js",
+		"src/service-worker/service-worker.js",
+		"service-worker.js"
+	],
 	"exclude": ["node_modules"]
 }

@@ -11,6 +11,7 @@
  * Result
  * API.searchParams.get('offset') now is 15.
  * ```
+ * @see {@link https://developer.mozilla.org/es/docs/Web/API/URL}
  */
 export function updateOffsetApi(api: URL): void {
 	const OFFSET = api.searchParams.get('offset');

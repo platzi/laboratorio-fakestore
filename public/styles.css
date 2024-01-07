@@ -84,3 +84,8 @@ body {
 	grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
 	gap: 4rem;
 }
+
+.main__warn-message {
+	font-size: 1.6rem;
+	font-weight: bold;
+}

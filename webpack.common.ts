@@ -7,6 +7,7 @@ const common: Configuration = {
 	target: 'web',
 	entry: {
 		index: './src/index.ts',
+		// 'service-worker': './service-worker.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'build'),
@@ -60,6 +61,7 @@ const common: Configuration = {
 			filename: 'index.html',
 			chunks: ['index'],
 		}),
+		// new GenerateSW(),
 	],
 };
 

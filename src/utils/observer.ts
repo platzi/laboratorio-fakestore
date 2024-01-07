@@ -7,6 +7,7 @@ import { updateOffsetApi } from './updateOffsetApi';
  * @param entries - Targets to observed.
  * @example
  * const OBSERVER = new IntersectionObserver(actionObserver, OPTIONS);
+ * @see {@link https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API}
  */
 async function actionObserver(
 	entries: IntersectionObserverEntry[],
@@ -25,6 +26,7 @@ const $OBSERVE = document.querySelector('#observe') as HTMLDivElement;
 const OPTIONS = {
 	rootMargin: '0px 0px 100% 0px',
 };
-const OBSERVER = new IntersectionObserver(actionObserver, OPTIONS);
+
+export const OBSERVER = new IntersectionObserver(actionObserver, OPTIONS);
 
 OBSERVER.observe($OBSERVE);
