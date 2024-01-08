@@ -32,7 +32,7 @@ import { Product } from '@src/types/Product';
  * ```
  * @see {@link Product}
  */
-export function htmlTemplateProduct(product: Product): HTMLElement {
+function htmlTemplateProduct(product: Product): HTMLElement {
 	const ARTICLE = document.createElement('article');
 	const IMG = document.createElement('img');
 	const TITLE = document.createElement('h2');
@@ -49,3 +49,5 @@ export function htmlTemplateProduct(product: Product): HTMLElement {
 
 	return ARTICLE;
 }
+
+export default htmlTemplateProduct;

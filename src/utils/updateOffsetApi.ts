@@ -13,9 +13,11 @@
  * ```
  * @see {@link https://developer.mozilla.org/es/docs/Web/API/URL}
  */
-export function updateOffsetApi(api: URL): void {
+function updateOffsetApi(api: URL): void {
 	const OFFSET = api.searchParams.get('offset');
 	const NEW_OFFSET = Number(OFFSET) + 10;
 
 	api.searchParams.set('offset', String(NEW_OFFSET));
 }
+
+export default updateOffsetApi;

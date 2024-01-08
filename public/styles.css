@@ -4,15 +4,28 @@
 		local("Open Sans"),
 		local("Open-Sans"),
 		local("Open_Sans"),
-		url("@fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf")
-			format("truetype");
+		url("@fonts/Open-Sans/OpenSans-Regular.woff2") format("woff2");
 	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src:
+		local("Open Sans"),
+		local("Open-Sans"),
+		local("Open_Sans"),
+		url("@fonts/Open-Sans/OpenSans-Light.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 300;
 	font-display: swap;
 }
 
 :root {
 	--text-color: oklch(39.33% 0.019 229.47deg);
-	--blue-charcoal-lch: 29.03% 0.012 248.23deg;
+	--blue-charcoal-shadow-1: oklch(29.03% 0.012 248.23deg / 6%);
+	--blue-charcoal-shadow-2: oklch(29.03% 0.012 248.23deg / 3%);
 	--fs-base: 62.5%;
 }
 
@@ -51,8 +64,8 @@ body {
 	animation-name: fade;
 	animation-duration: 4s;
 	box-shadow:
-		8px 14px 38px oklch(var(--blue-charcoal-lch) / 6%),
-		1px 3px 8px oklch(var(--blue-charcoal-lch) / 3%);
+		8px 14px 38px var(--blue-charcoal-shadow-1),
+		1px 3px 8px var(--blue-charcoal-shadow-2);
 }
 
 .card img {
@@ -77,12 +90,6 @@ body {
 	to {
 		opacity: 1;
 	}
-}
-
-.main__items-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-	gap: 4rem;
 }
 
 .main__warn-message {

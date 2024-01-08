@@ -1,6 +1,5 @@
 import { Product } from '@src/types/Product';
-
-import { htmlTemplateProduct } from './templateProduct';
+import htmlTemplateProduct from '@templates/templateProduct';
 
 /**
  * Build the HTML for the products to be added to the DOM.
@@ -13,8 +12,10 @@ import { htmlTemplateProduct } from './templateProduct';
  * ```
  * @see {@link Product}
  */
-export function buildProducts(products: Product[]): HTMLElement[] {
+function buildProducts(products: Product[]): HTMLElement[] {
 	return products.map((product) => {
 		return htmlTemplateProduct(product);
 	});
 }
+
+export default buildProducts;

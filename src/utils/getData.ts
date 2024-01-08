@@ -7,8 +7,10 @@
  * const DATA = await getData<Product>(api);
  * 'DATA - The data from the API in JSON format, in this case an array of products.'
  */
-export const getData = <T>(api: URL): Promise<T[]> => {
+const getData = <T>(api: URL): Promise<T[]> => {
 	return fetch(api)
 		.then((response) => response.json())
 		.catch((error) => console.error(error));
 };
+
+export default getData;

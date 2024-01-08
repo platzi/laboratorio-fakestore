@@ -1,6 +1,6 @@
-import { Api } from './api';
-import { loadData } from './loadData';
-import { updateOffsetApi } from './updateOffsetApi';
+import { Api } from '@src/api/api';
+import { loadData } from '@utils/loadData';
+import updateOffsetApi from '@utils/updateOffsetApi';
 
 /**
  * Action to be taken when the observer is intersected
@@ -22,11 +22,10 @@ async function actionObserver(
 	await loadData(Api.TenProducts);
 }
 
-const $OBSERVE = document.querySelector('#observe') as HTMLDivElement;
+export const $OBSERVE = document.querySelector('#observe') as HTMLDivElement;
+
 const OPTIONS = {
 	rootMargin: '0px 0px 100% 0px',
 };
 
 export const OBSERVER = new IntersectionObserver(actionObserver, OPTIONS);
-
-OBSERVER.observe($OBSERVE);
