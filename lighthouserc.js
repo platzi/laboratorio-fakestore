@@ -7,6 +7,7 @@ module.exports = {
 				'unused-javascript': 'warn',
 				'uses-responsive-images': 'warn',
 				'lcp-lazy-loaded': 'warn',
+				'total-byte-weight': 'warn',
 				// Not performance related (Accessibility)
 				'tap-targets': 'off',
 				'non-composited-animations': 'off',

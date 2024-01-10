@@ -2,6 +2,8 @@ export interface ProductCategory {
 	id: number;
 	name: string;
 	image: string;
+	creationAt: Date;
+	updatedAt: Date;
 }
 
 export interface Product {
@@ -11,4 +13,6 @@ export interface Product {
 	description: string;
 	category: ProductCategory;
 	images: string[];
+	creationAt: Date;
+	updatedAt: Date;
 }
