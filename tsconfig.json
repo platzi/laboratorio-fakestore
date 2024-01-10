@@ -1,0 +1,56 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"useDefineForClassFields": true,
+		"module": "ESNext",
+		"lib": ["ES2020", "DOM", "DOM.Iterable", "WebWorker", "ESNext"],
+		"skipLibCheck": true,
+
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"removeComments": true,
+
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"esModuleInterop": true,
+		"noImplicitReturns": true,
+		"forceConsistentCasingInFileNames": true,
+
+		/* Interop Constraints */
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"paths": {
+			"@src/*": ["src/*"],
+			"@styles/*": ["public/*"],
+			"@utils/*": ["src/utils/*"],
+			"@templates/*": ["src/templates/*"],
+			"@interface/*": ["src/interface/*"],
+			"@images/*": ["assets/images/*"]
+		}
+	},
+
+	"ts-node": {
+		"transpileOnly": true,
+		"files": true,
+		"compilerOptions": {
+			"module": "ES2022"
+		}
+	},
+	"extends": "@tsconfig/recommended/tsconfig.json",
+	"include": [
+		"./**/*.ts",
+		"cypress.config.js",
+		"src/sw.ts",
+		"src/service-worker/sw.js",
+		"src/service-worker/service-worker.js",
+		"service-worker.js"
+	],
+	"exclude": ["node_modules"]
+}

@@ -4,21 +4,21 @@ FakeStore somos comercio en línea con una gran cantidad de productos a comercia
 
 FakeStore tiene varios bugs, tareas sin completar y recursos a implementar para su lanzamiento oficial.
 
-### Instalación
+## Instalación
 
-```
+``` bash
 npm install
 ```
 
 ### Ejecución
 
-```
+``` bash
 npm run start
 ```
 
 ### Debug
 
-- http://fakestore.shop
+- <https://fakeapi.platzi.com/>
 - localhost:8080/public
 
 ### Documentación

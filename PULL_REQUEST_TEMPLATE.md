@@ -1,15 +1,15 @@
-## DESCRIPTION
+# Descripción
 
 Solución al reto:
 
 Nombre:
 Usuario Platzi:
 
-## Reto:
+## Reto
 
-- [ ] Primer problema
-- [ ] Segundo problema
-- [ ] Tercer problema
-- [ ] Cuarto Problema
-- [ ] Quinto Problema
-- [ ] Sexto Problema
+- [x] Primer problema
+- [x] Segundo problema
+- [x] Tercer problema
+- [x] Cuarto Problema
+- [x] Quinto Problema
+- [x] Sexto Problema
