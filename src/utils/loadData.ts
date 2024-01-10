@@ -5,6 +5,8 @@ import getData from '@utils/getData';
 import { PAGINATION_KEY, updateStorage } from '@utils/localStorage';
 import { $OBSERVE, OBSERVER } from '@utils/observer';
 
+const $ITEM_SKELETON = document.querySelector('.items') as HTMLElement;
+
 /** Load the products in the DOM
  * @param api - The API products to get the data for add the HTML.
  * @returns Promise<void>.
@@ -35,6 +37,7 @@ export async function loadData(api: URL): Promise<void> {
 	$APP.append($NEW_ITEM);
 
 	if (localStorage.getItem(PAGINATION_KEY) === '5') {
+		$ITEM_SKELETON.remove();
 		OBSERVER.observe($OBSERVE);
 	}
 }

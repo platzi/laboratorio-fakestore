@@ -41,6 +41,8 @@ function htmlTemplateProduct(product: Product): HTMLElement {
 	ARTICLE.classList.add('card');
 	IMG.src = product.images[0];
 	IMG.alt = product.title;
+	IMG.width = 200;
+	IMG.height = 200;
 	TITLE.textContent = product.title;
 	PRICE.textContent = `$${product.price}`;
 
