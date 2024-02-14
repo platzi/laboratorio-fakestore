@@ -4,6 +4,9 @@
   "description": "FakeStore",
   "main": "index.js",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "start": "live-server --open=public --entry-file=index.html",
     "e2e": "cypress open"
   },
@@ -19,7 +22,8 @@
   },
   "homepage": "https://github.com/platzi/laboratorio-fakestore#readme",
   "devDependencies": {
-    "live-server": "^1.1.0"
+    "live-server": "^1.1.0",
+    "vite": "^5.1.2"
   },
   "dependencies": {
     "cypress": "^10.2.0"
