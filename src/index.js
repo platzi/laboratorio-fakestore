@@ -2,8 +2,14 @@ const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 const API = 'https://api.escuelajs.co/api/v1/products';
 
-const getData = api => {
-  fetch(api)
+
+const getproducts = () => {
+  const initialOffset = 5;
+  localStorage.setItem("pagination", initialOffset);
+
+  const url = `${API}?=offset=${initialOffset}`
+
+  fetch(url)
     .then(response => response.json())
     .then(response => {
       let products = response;
@@ -15,8 +21,11 @@ const getData = api => {
       newItem.innerHTML = output;
       $app.appendChild(newItem);
     })
-    .catch(error => console.log(error));
-}
+      .catch(error => console.log(error));
+    }
+
+    getproducts();
+
 
 const loadData = () => {
   getData(API);
